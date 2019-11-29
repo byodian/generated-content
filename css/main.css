@@ -1,0 +1,167 @@
+:root {
+  --white: #fdfbfb;
+  --dark: #000;
+  --pink: #fbc2eb;
+  --light-blue: #a6c1ee;
+  --red: #f5576c;
+}
+
+.header {
+  height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: lightblue;
+} 
+
+.highlight {
+  color: var(--red);
+  font-weight: bold;
+}
+
+.case {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 30vh;
+}
+
+.case > h3 {
+  font-family: '黑体', Helvetica, sans-serif;
+}
+
+.case2, .case4 {
+  background-color: var(--white);
+}
+
+.case1 > h3 {
+  color: var(--white);
+}
+
+.case1 {
+  position: relative;
+  height: 85vh;
+  background-image: url(https://images.unsplash.com/photo-1517299321609-52687d1bc55a?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ);
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+.case1::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: gray; 
+  opacity: .7;
+  mix-blend-mode: multiply;
+}
+
+.case1 > * {
+/* Set stacking context to keep content on top of the background */
+  position: relative;
+}
+
+/* Add a border */
+.heading-border {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.heading-border h4 {
+  position: relative;
+  color: var(--white);
+  padding: 1rem;
+}
+
+.heading-border h4::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+
+  background-color: var(--dark);
+  background-image: linear-gradient(to right, var(--pink) 0%, var(--light-blue) 100%);
+  transition: .2s ease;
+  transform: translateX(-50%);
+}
+
+.heading-border h4:hover::after {
+  left: 1rem;
+  right: 1rem;
+  transform: translateX(0);
+}
+
+.container-border {
+  position: relative;
+  width: 80%;
+  margin: 2rem 0;
+  padding: 2rem;
+  background-image: linear-gradient(120deg, var(--light-blue) 0%, var(--pink) 100%);
+}
+
+.container-border > * {
+/* Set stacking context to keep content on the top of background */
+  position: relative;
+}
+
+.container-border::before {
+  content: "";
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  
+  background-color: var(--white);
+  width: calc(100% - 2rem);
+  height: calc(100% - 2rem);
+}
+
+/* Add an icon */
+.case2-icon span {
+  display: inline-block;
+  padding: 4px 6px;
+  background-color: var(--light-blue);
+  border-radius: 2px;
+  font-family: "FontAwesome";
+}
+
+.case2-icon span::before {
+  content: "\f26e";
+  color: var(--white);
+}
+
+.case2-icon a[href^="http"]::after {
+  content: "";
+  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/161359/open-in-new.svg);
+  background-size: cover;
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1em;
+}
+
+/* 添加特殊符号或者文字内容 */
+
+a[href$="pdf"]::after {
+  content: "(pdf)";
+  display: inline-block;
+  padding-left: 2px;
+  font-size: .5rem;
+  color: var(--red);
+}
+
+.copyright-item::after {
+  content: " | ";
+  color: var(--light-blue);
+}
+
+.copyright-item:last-of-type::after {
+  content: "";
+}
