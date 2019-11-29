@@ -22,7 +22,7 @@
 
 .github-icon {
   fill: var(--dark);
-  color: lightblue;
+  color: var(--pink);
   position: absolute;
   right: 0;
   top: 0;
